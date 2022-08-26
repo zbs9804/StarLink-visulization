@@ -1,0 +1,36 @@
+backend: N2YO
+fe (req->) N2YO
+using middleware provided by create-react-app
+
+features:
+    1. provide settings
+    2. list all satellites on the given location
+    3. track satellites on map
+
+layout:
+    top
+    main(left, right)
+    bottom
+
+components:
+                                    App
+                /                    |                  \
+             Header                 Main                Footer
+                          /          |               \
+                    SatSetting   SatelliteList     WorldMap
+
+Main cb1 onShow -> SatSetting
+Main cb2 onShowMap(all satellite) -> SatelliteList
+Main props satInfo, isLoadingList -> SatelliteList
+
+删filter访map加..
+
+类组件上树函数执行顺序：constructor，render，componentDidMount
+
+ref的用法：
+        define
+            通过react.createRef()
+            (refInstance) => {}
+
+卫星的点一直在动，这就需要删除之前的，再打新的，这会使地图也被删除，没办法只能用图层重叠做
+axios.then返回值是http请求的result
